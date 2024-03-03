@@ -1,0 +1,47 @@
+.loginContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
+}
+
+.loginActions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 42px 24px;
+  min-width: 350px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.loginInputsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.loginButton {
+  margin-top: 24px;
+}
+
+.signUpInfoText {
+  font-size: 16px;
+  padding-top: 24px;
+}
+
+.signUpInfoButton {
+  font-size: 18px;
+  color: #ab8a26;
+  cursor: pointer;
+}

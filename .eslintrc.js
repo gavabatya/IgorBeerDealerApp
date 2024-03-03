@@ -1,0 +1,76 @@
+module.exports = {
+  env: {
+    browser: true,
+    node: true,
+    es2021: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'prettier',
+  ],
+  plugins: ['react', 'react-hooks', 'prettier'],
+  overrides: [
+    {
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: ['./tsconfig.json'],
+        ecmaFeatures: {
+          jsx: false,
+        },
+        ecmaVersion: 'es6',
+        sourceType: 'module',
+      },
+      files: ['*.ts', '*.tsx'],
+      extends: [
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'plugin:react-hooks/recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
+        // 'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'prettier',
+      ],
+      plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
+      rules: {
+        quotes: ['error', 'single', { avoidEscape: true }],
+        'no-empty-function': 'off',
+        'react/react-in-jsx-scope': 'off',
+        'react/display-name': 'off',
+        'react/prop-types': 'off',
+        'prettier/prettier': 'error',
+        'arrow-body-style': 'off',
+        'prefer-arrow-callback': 'off',
+        'no-inner-declarations': 'off',
+        // '@typescript-eslint/no-explicit-any': 'off',
+        // '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/restrict-plus-operands': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-namespace': 'off',
+        '@typescript-eslint/no-unused-vars': 'warn',
+      },
+    },
+    {
+      files: ['*.js', '*.jsx'],
+      rules: {
+        quotes: ['error', 'single', { avoidEscape: true }],
+        'no-empty-function': 'off',
+        'react/react-in-jsx-scope': 'off',
+        'react/display-name': 'off',
+        'react/prop-types': 'off',
+        'prettier/prettier': 'error',
+        'arrow-body-style': 'off',
+        'prefer-arrow-callback': 'off',
+        'no-inner-declarations': 'off',
+      },
+    },
+  ],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+};
