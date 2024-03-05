@@ -1,4 +1,3 @@
-import React from 'react';
 import SportsBarIcon from '@mui/icons-material/SportsBar';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -27,7 +26,23 @@ export const LoginPageContent = () => {
   };
 
   const onSubmit = (values: { email: string; password: string }) => {
-    alert(`GAVA TOP! ${values.email}, ${values.password}`);
+    // alert(`GAVA TOP! ${values.email}, ${values.password}`);
+    const { email, password } = values;
+    const registeredUsersString = localStorage.getItem('registeredUsers');
+    if (!registeredUsersString) {
+      alert('говно');
+      return;
+    }
+    const registeredUsers: [{ email: string; password: string }] =
+      JSON.parse(registeredUsersString);
+    const isUserRegistered = registeredUsers.some(
+      (user) => user.email === email && user.password === password,
+    );
+    if (isUserRegistered) {
+      localStorage.setItem('activeUser', JSON.stringify({ email, password }));
+    } else {
+      alert('ты калл');
+    }
   };
 
   return (
