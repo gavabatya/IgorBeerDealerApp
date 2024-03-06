@@ -10,6 +10,9 @@ import './registrationPageContent.css';
 import { FormControlLabel } from '@mui/material';
 import { CustomButton } from '../../components/button/CustomButton';
 import { Input } from '../../components/input/Input';
+import { useAuth } from '../../hooks/useAuth.tsx';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 export const RegistrationPageContent = () => {
   const navigate = useNavigate();
@@ -26,26 +29,6 @@ export const RegistrationPageContent = () => {
   });
   const { isValid } = formState;
 
-  const onSubmit = (values: { email: string; password: string; confirmPassword: string }) => {
-    const { email, password } = values;
-    const registeredUsersString = localStorage.getItem('registeredUsers');
-
-    if (!registeredUsersString) {
-      localStorage.setItem('registeredUsers', JSON.stringify([{ email, password }]));
-    } else {
-      const registeredUsers: [{ email: string; password: string }] =
-        JSON.parse(registeredUsersString);
-
-      const isUserAlreadyExist = registeredUsers.some((user) => user.email === email);
-
-      if (isUserAlreadyExist) {
-        alert('Gava loh');
-      } else {
-        registeredUsers.push({ email, password });
-        localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
-      }
-    }
-  };
   const handleGoToLogin = () => {
     navigate('/login');
   };
@@ -53,9 +36,9 @@ export const RegistrationPageContent = () => {
   const confirmAge = (_event: ChangeEvent<HTMLInputElement>, checked: boolean) => {
     setAgeChecked(checked);
   };
-
+  const { handleResetAuthError, isAuthError, onRegistrationSubmit } = useAuth();
   return (
-    <form className="registrationContainer" onSubmit={handleSubmit(onSubmit)}>
+    <form className="registrationContainer" onSubmit={handleSubmit(onRegistrationSubmit)}>
       <div className="registrationActions">
         <div className="registrationInputsBox">
           <Input
@@ -107,6 +90,11 @@ export const RegistrationPageContent = () => {
           Sign In!
         </span>
       </div>
+      <Snackbar open={isAuthError} autoHideDuration={6000} onClose={handleResetAuthError}>
+        <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
+          User with this email already exists
+        </Alert>
+      </Snackbar>
     </form>
   );
 };

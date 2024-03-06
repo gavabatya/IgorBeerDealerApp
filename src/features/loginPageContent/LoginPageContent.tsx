@@ -1,4 +1,6 @@
 import SportsBarIcon from '@mui/icons-material/SportsBar';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -7,6 +9,7 @@ import { loginValidationSchema } from './formValidation/loginValidationSchema';
 import './loginPageContent.css';
 import { CustomButton } from '../../components/button/CustomButton';
 import { Input } from '../../components/input/Input';
+import { useAuth } from '../../hooks/useAuth.tsx';
 
 export const LoginPageContent = () => {
   const navigate = useNavigate();
@@ -25,28 +28,9 @@ export const LoginPageContent = () => {
     navigate('/registration');
   };
 
-  const onSubmit = (values: { email: string; password: string }) => {
-    // alert(`GAVA TOP! ${values.email}, ${values.password}`);
-    const { email, password } = values;
-    const registeredUsersString = localStorage.getItem('registeredUsers');
-    if (!registeredUsersString) {
-      alert('говно');
-      return;
-    }
-    const registeredUsers: [{ email: string; password: string }] =
-      JSON.parse(registeredUsersString);
-    const isUserRegistered = registeredUsers.some(
-      (user) => user.email === email && user.password === password,
-    );
-    if (isUserRegistered) {
-      localStorage.setItem('activeUser', JSON.stringify({ email, password }));
-    } else {
-      alert('ты калл');
-    }
-  };
-
+  const { handleResetAuthError, isAuthError, onLoginSubmit } = useAuth();
   return (
-    <form className="loginContainer" onSubmit={handleSubmit(onSubmit)}>
+    <form className="loginContainer" onSubmit={handleSubmit(onLoginSubmit)}>
       <div className="loginActions">
         <div className="loginInputsBox">
           <Input
@@ -84,6 +68,11 @@ export const LoginPageContent = () => {
           Sign Up!
         </span>
       </div>
+      <Snackbar open={isAuthError} autoHideDuration={6000} onClose={handleResetAuthError}>
+        <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
+          Invalid login or password
+        </Alert>
+      </Snackbar>
     </form>
   );
 };
