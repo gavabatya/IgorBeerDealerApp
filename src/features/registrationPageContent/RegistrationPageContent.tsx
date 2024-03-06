@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import SportsBarIcon from '@mui/icons-material/SportsBar';
 import Checkbox from '@mui/material/Checkbox';
 import { useNavigate } from 'react-router-dom';
@@ -27,13 +27,30 @@ export const RegistrationPageContent = () => {
   const { isValid } = formState;
 
   const onSubmit = (values: { email: string; password: string; confirmPassword: string }) => {
-    alert(`GAVA TOP! ${values.email} ${values.password}`);
+    const { email, password } = values;
+    const registeredUsersString = localStorage.getItem('registeredUsers');
+
+    if (!registeredUsersString) {
+      localStorage.setItem('registeredUsers', JSON.stringify([{ email, password }]));
+    } else {
+      const registeredUsers: [{ email: string; password: string }] =
+        JSON.parse(registeredUsersString);
+
+      const isUserAlreadyExist = registeredUsers.some((user) => user.email === email);
+
+      if (isUserAlreadyExist) {
+        alert('Gava loh');
+      } else {
+        registeredUsers.push({ email, password });
+        localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+      }
+    }
   };
   const handleGoToLogin = () => {
     navigate('/login');
   };
 
-  const confirmAge = (event: ChangeEvent<HTMLInputElement>, checked: boolean) => {
+  const confirmAge = (_event: ChangeEvent<HTMLInputElement>, checked: boolean) => {
     setAgeChecked(checked);
   };
 

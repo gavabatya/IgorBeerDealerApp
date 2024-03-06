@@ -1,1 +1,0 @@
-export{ TestComp } from './TestComp';

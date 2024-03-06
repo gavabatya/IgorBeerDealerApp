@@ -1,14 +1,14 @@
-import React from 'react';
 import { useController, UseControllerProps } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import { TextFieldProps } from '@mui/material/TextField/TextField';
 import { makeStyles } from '@mui/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { IconButton, InputAdornment } from '@mui/material';
+import {useState} from "react";
 
 type Props<T> = TextFieldProps & {
-  // @ts-ignore
-  controller: UseControllerProps<T>;
+    // @ts-ignore
+    controller: UseControllerProps<T>;
   inputType?: 'password';
 };
 
@@ -28,9 +28,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 export function Input<T extends object>({ inputType, controller, ...otherProps }: Props<T>) {
-  const [showPassword, setShowPassword] = React.useState(false);
-  const [currentValue, setCurrentValue] = React.useState('');
-  const [focused, setFocused] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [currentValue, setCurrentValue] = useState('');
+  const [focused, setFocused] = useState(false);
   const classes = useStyles();
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 

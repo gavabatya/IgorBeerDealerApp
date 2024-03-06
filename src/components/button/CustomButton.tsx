@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
 import Button, { ButtonProps } from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
 
