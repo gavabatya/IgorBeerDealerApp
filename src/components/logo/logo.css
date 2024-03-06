@@ -1,0 +1,38 @@
+.appLogo {
+    width: 250px;
+}
+
+/*анимацию взял тут https://stackoverflow.com/questions/43744050/animated-light-reflection-on-image-in-css-or-jquery*/
+.logoAnim {
+    display: inline-block;
+    position: relative;
+}
+
+/*анимацию взял тут https://stackoverflow.com/questions/43744050/animated-light-reflection-on-image-in-css-or-jquery*/
+.logoAnim:after {
+    content: "";
+    position: absolute;
+    top: -30%;
+    right: -200%;
+    width: 50%;
+    height: 200%;
+    opacity: 0;
+    transform: rotate(30deg);
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.13) 0%,
+      rgba(255, 255, 255, 0.13) 77%,
+      rgba(255, 255, 255, 0.5) 92%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    animation: shine 2s 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shine {
+    to {
+        opacity: 1;
+        right: 210%;
+    }
+}

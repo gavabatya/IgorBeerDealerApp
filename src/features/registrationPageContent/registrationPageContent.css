@@ -1,0 +1,43 @@
+.registrationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
+}
+
+.registrationActions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 42px 24px;
+  min-width: 350px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.registrationInputsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.signInInfoText {
+  font-size: 16px;
+  padding-top: 24px;
+}
+
+.signInInfoButton {
+  font-size: 18px;
+  color: #ab8a26;
+  cursor: pointer;
+}
