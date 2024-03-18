@@ -1,0 +1,15 @@
+
+.favoritesRecipeImg {
+    width: 100%;
+    height: 140px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px
+}
+
+.actionIcons {
+    display: flex;
+    gap: 20px;
+}
+
