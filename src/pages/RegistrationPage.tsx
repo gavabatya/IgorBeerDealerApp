@@ -1,4 +1,4 @@
-import { RegistrationPageContent } from '../features/registrationPageContent/RegistrationPageContent';
+import { RegistrationPageContent } from '../features/welcomeContent/registrationPageContent/RegistrationPageContent';
 
 export const RegistrationPage = () => {
   return <RegistrationPageContent />;

@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 
-import { loginValidationSchema } from './formValidation/loginValidationSchema';
+import { loginValidationSchema } from './formValidation/loginValidationSchema.ts';
 import './loginPageContent.css';
-import { CustomButton } from '../../components/button/CustomButton';
-import { Input } from '../../components/input/Input';
-import { useAuth } from '../../hooks/useAuth.ts';
+import { CustomButton } from '../../../components/button/CustomButton.tsx';
+import { Input } from '../../../components/input/Input.tsx';
+import { useAuth } from '../../../hooks/useAuth.ts';
 
 export const LoginPageContent = () => {
   const navigate = useNavigate();

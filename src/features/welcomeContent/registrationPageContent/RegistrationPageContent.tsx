@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { registrationValidationSchema } from './formValidation/registrationValidationSchema';
+import { registrationValidationSchema } from './formValidation/registrationValidationSchema.ts';
 import './registrationPageContent.css';
 import { FormControlLabel } from '@mui/material';
-import { CustomButton } from '../../components/button/CustomButton';
-import { Input } from '../../components/input/Input';
-import { useAuth } from '../../hooks/useAuth.tsx';
+import { CustomButton } from '../../../components/button/CustomButton.tsx';
+import { Input } from '../../../components/input/Input.tsx';
+import { useAuth } from '../../../hooks/useAuth.ts';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 

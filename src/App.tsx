@@ -1,11 +1,11 @@
-import { BrowserRouter } from 'react-router-dom';
-import { WelcomeNavigationRouter } from './interface-adapters/navigation/WelcomeNavigationRouter';
-
+import { Navigation } from './interface-adapters/Navigation.tsx';
+import { Provider } from 'react-redux';
+import { store } from './store';
 function App() {
   return (
-    <BrowserRouter>
-      <WelcomeNavigationRouter />
-    </BrowserRouter>
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
   );
 }
 
