@@ -68,8 +68,19 @@ export const SearchPageContent: FC<Props> = ({ searchString }) => {
 
   if (data && data.recipes.length === 0) {
     return (
-      <div className="searchConteiner">
-        <SearchOffIcon sx={{ color: '#ffcc33', fontSize: '24px' }} />
+      <div
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          fontSize: '32px',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <SearchOffIcon sx={{ color: '#ffcc33', fontSize: '60px' }} />
+          No recipes found
+        </div>
       </div>
     );
   }

@@ -28,7 +28,7 @@ export const SearchHistoryPage = () => {
         const parsedUrl = url.split('/');
         return (
           <li key={`${url}+${index}`}>
-            <div style={{ display: 'flex', gap: '20px' }}>
+            <div style={{ display: 'flex', gap: '20px', fontSize: '24px' }}>
               {`Search for: ${parsedUrl[parsedUrl.length - 1]}`}
               <a href={url}>{url}</a>
             </div>
