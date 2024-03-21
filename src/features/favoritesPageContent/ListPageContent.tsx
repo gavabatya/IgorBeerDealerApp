@@ -13,6 +13,7 @@ import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { styled } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
+import RemoveShoppingCartOutlinedIcon from '@mui/icons-material/RemoveShoppingCartOutlined';
 
 import { getFavorites } from '../../store/favoritesStore/favotitesSelectors.ts';
 import { addToFavorites, setFavoritesProducts } from '../../store/favoritesStore/favotitesSlice.ts';
@@ -48,7 +49,22 @@ export const ListPageContent: FC<Props> = ({ listType }) => {
   }, [favoritesProducts, listType, productsInCart]);
 
   if (!iteratedArray || iteratedArray?.length === 0) {
-    return <div>НИЧЕГО НЕ ДОБАВИЛИ В ИЗБРАННОЕ (ГАВА-НУЖЕН ЭКРАН ЕСЛИ НИЧЕГО НЕ ДОБАВИЛИ)</div>;
+    return (
+      <div
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          fontSize: '32px',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <RemoveShoppingCartOutlinedIcon sx={{ color: '#ffcc33', fontSize: '60px' }} />
+          There is nothing here yet, add recipes
+        </div>
+      </div>
+    );
   }
 
   const Demo = styled('div')(({ theme }) => ({

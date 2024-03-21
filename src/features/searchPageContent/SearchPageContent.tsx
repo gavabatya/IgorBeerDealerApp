@@ -27,6 +27,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import SearchOffIcon from '@mui/icons-material/SearchOff';
 
 interface Props {
   searchString?: string;
@@ -66,7 +67,22 @@ export const SearchPageContent: FC<Props> = ({ searchString }) => {
   }
 
   if (data && data.recipes.length === 0) {
-    return <div>ГАВА-ЧИТАНАВА ПОИСК НИЧЕГО НЕ НАШЕЛ!!!!! НУЖНО ЧТО ТО СДЕЛАТЬ!!!</div>;
+    return (
+      <div
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          fontSize: '32px',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <SearchOffIcon sx={{ color: '#ffcc33', fontSize: '60px' }} />
+          No recipes found
+        </div>
+      </div>
+    );
   }
 
   return (
