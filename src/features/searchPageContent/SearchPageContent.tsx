@@ -27,6 +27,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import SearchOffIcon from '@mui/icons-material/SearchOff';
 
 interface Props {
   searchString?: string;
@@ -66,7 +67,11 @@ export const SearchPageContent: FC<Props> = ({ searchString }) => {
   }
 
   if (data && data.recipes.length === 0) {
-    return <div>ГАВА-ЧИТАНАВА ПОИСК НИЧЕГО НЕ НАШЕЛ!!!!! НУЖНО ЧТО ТО СДЕЛАТЬ!!!</div>;
+    return (
+      <div className="searchConteiner">
+        <SearchOffIcon sx={{ color: '#ffcc33', fontSize: '24px' }} />
+      </div>
+    );
   }
 
   return (
