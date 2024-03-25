@@ -9,22 +9,22 @@
 
 #### React
 
-- [x] Используются функциональные компоненты c хуками в приоритете над классовыми
-- [x] Есть разделение на "умные" и "глупые компоненты"
-- [x] Есть "рендеринг списков"
-- [x] Реализована хотя бы одна "форма"
+- [x] Используются функциональные компоненты c хуками в приоритете над классовыми: https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/components/header/Header.tsx
+- [x] Есть разделение на "умные": https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/components/input/Input.tsx и "глупые компоненты": https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/components/logo/Logo.tsx
+- [x] Есть "рендеринг списков" : https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/features/searchPageContent/SearchPageContent.tsx
+- [x] Реализована хотя бы одна "форма" : https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/features/loginPageContent/formValidation/loginValidationSchema.ts
 - [ ] Есть применение "Контекст API"(не использовал т.к Redux)
 - [ ] Есть применение "предохранителя"(не использовал)
-- [x] Есть хотя бы один "кастомный хук"
+- [x] Есть хотя бы один "кастомный хук" : https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/hooks/useLocalStorage.ts
 - [ ] Несколько компонентов используют "PropTypes" (использовал TS)
 - [x] Поиск не должен триггерить много запросов к серверу
-- [x] Есть применение "lazy + Suspense"
+- [x] Есть применение "lazy + Suspense" : https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/features/mainContent/MainPageContent.tsx
 
 #### Redux
 
-- [x] Используется "Modern Redux with Redux Toolkit"
-- [x] Используются "слайсы"
-- [x] Используется "RTK Query"
+- [x] Используется "Modern Redux with Redux Toolkit" : https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/store/recipeApi/recipesApi.ts
+- [x] Используются "слайсы": https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/store/favoritesStore/favotitesSlice.ts
+- [x] Используется "RTK Query" : https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/store/recipeApi/recipesApi.ts
 
 ### 2 уровень (необязательный)
 
