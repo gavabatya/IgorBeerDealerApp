@@ -11,7 +11,7 @@
 
 - [x] Используются функциональные компоненты c хуками в приоритете над классовыми: https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/components/header/Header.tsx
 - [x] Есть разделение на "умные": https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/components/input/Input.tsx и "глупые компоненты": https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/components/logo/Logo.tsx
-- [x] Есть "рендеринг списков" : https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/features/searchPageContent/SearchPageContent.tsx
+- [x] Есть "рендеринг списков" : https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/features/mainContent/MainPageContent.tsx
 - [x] Реализована хотя бы одна "форма" : https://github.com/gavabatya/IgorRecipeDealerApp/blob/main/src/features/loginPageContent/formValidation/loginValidationSchema.ts
 - [ ] Есть применение "Контекст API"(не использовал т.к Redux)
 - [ ] Есть применение "предохранителя"(не использовал)
