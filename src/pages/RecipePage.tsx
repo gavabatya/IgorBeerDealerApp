@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { RecipePageContent } from '../features/recipePageContent/RecipePageContent.tsx';
+import RecipePageContent from '../features/RecipePageContent/RecipePageContent.tsx';
 
 export const RecipePage = () => {
   const { recipeId } = useParams();

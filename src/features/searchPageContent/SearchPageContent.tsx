@@ -1,12 +1,8 @@
-import { FC, useEffect } from 'react';
-import {
-  useGetRecipeByIdQuery,
-  useGetRecipeBySearchStringQuery,
-} from '../../store/recipeApi/recipesApi.ts';
+import { FC } from 'react';
+import { useGetRecipeBySearchStringQuery } from '../../store/recipeApi/recipesApi.ts';
 import { Loader } from '../../components/loader/Loader.tsx';
 import * as React from 'react';
 import './searchPageContent.css';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -18,7 +14,6 @@ import { getFavorites } from '../../store/favoritesStore/favotitesSelectors.ts';
 import { getProductInCart } from '../../store/cartStore/cartSelectors.ts';
 import { addToFavorites } from '../../store/favoritesStore/favotitesSlice.ts';
 import { addToCart } from '../../store/cartStore/cartSlice.ts';
-import logo from '../../assets/logo.svg';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
@@ -28,11 +23,12 @@ import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import SearchOffIcon from '@mui/icons-material/SearchOff';
+import PropTypes from 'prop-types';
 
 interface Props {
   searchString?: string;
 }
-export const SearchPageContent: FC<Props> = ({ searchString }) => {
+const SearchPageContent: FC<Props> = ({ searchString }) => {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   const { data, isLoading } = useGetRecipeBySearchStringQuery(searchString, {
     skip: !searchString,
@@ -150,3 +146,9 @@ export const SearchPageContent: FC<Props> = ({ searchString }) => {
     </Grid>
   );
 };
+
+SearchPageContent.propTypes = {
+  searchString: PropTypes.string,
+};
+
+export default SearchPageContent;

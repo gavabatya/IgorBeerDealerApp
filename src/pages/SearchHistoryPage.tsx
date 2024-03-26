@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { getSearchHistory } from '../store/searchHistoryStore/searchHistorySelectors.ts';
 import ScreenSearchDesktopIcon from '@mui/icons-material/ScreenSearchDesktop';
 export const SearchHistoryPage = () => {
-  const searchesCount = useSelector(getSearchHistory);
+  const searchesCount: string[] = useSelector(getSearchHistory);
 
   if (searchesCount.length === 0) {
     return (
