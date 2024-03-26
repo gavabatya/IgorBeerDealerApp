@@ -1,4 +1,5 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
+import PropTypes from 'prop-types';
 import { useGetRecipeByIdQuery } from '../../store/recipeApi/recipesApi.ts';
 import { Loader } from '../../components/loader/Loader.tsx';
 import * as React from 'react';
@@ -20,7 +21,7 @@ import logo from '../../assets/logo.svg';
 interface Props {
   recipeId?: string;
 }
-export const RecipePageContent: FC<Props> = ({ recipeId }) => {
+const RecipePageContent: FC<Props> = ({ recipeId }) => {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   const { data: recipe, isLoading } = useGetRecipeByIdQuery(recipeId, { skip: !recipeId });
   const navigate = useNavigate();
@@ -90,3 +91,9 @@ export const RecipePageContent: FC<Props> = ({ recipeId }) => {
     </div>
   );
 };
+
+RecipePageContent.propTypes = {
+  recipeId: PropTypes.string,
+};
+
+export default RecipePageContent;
