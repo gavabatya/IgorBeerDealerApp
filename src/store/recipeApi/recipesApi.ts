@@ -18,8 +18,11 @@ export const recipesApi = createApi({
   reducerPath: 'recipesApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com' }),
   endpoints: (builder) => ({
-    getRecipes: builder.query<RecipesResponseDTO, void>({
+    getRecipes: builder.query<Recipe[], void>({
       query: () => '/recipes?limit=100',
+      transformResponse: (response: RecipesResponseDTO) => {
+        return [...response.recipes];
+      },
     }),
     getRecipeById: builder.query<Recipe, string | undefined>({
       query: (id) => `recipes/${id}`,

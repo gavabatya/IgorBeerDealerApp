@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import * as React from 'react';
-import { FC, useEffect, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -9,21 +9,18 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import FolderIcon from '@mui/icons-material/Folder';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { styled } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
 import RemoveShoppingCartOutlinedIcon from '@mui/icons-material/RemoveShoppingCartOutlined';
 
 import { getFavorites } from '../../store/favoritesStore/favotitesSelectors.ts';
-import { addToFavorites, setFavoritesProducts } from '../../store/favoritesStore/favotitesSlice.ts';
-import { useLocalStorage } from '../../hooks/useLocalStorage.ts';
+import { addToFavorites } from '../../store/favoritesStore/favotitesSlice.ts';
 import { useGetRecipesQuery } from '../../store/recipeApi/recipesApi.ts';
 import './listPageContent.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { addToCart, setProductsInCart } from '../../store/cartStore/cartSlice.ts';
+import { addToCart } from '../../store/cartStore/cartSlice.ts';
 import { getProductInCart } from '../../store/cartStore/cartSelectors.ts';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useNavigate } from 'react-router-dom';
@@ -102,7 +99,7 @@ export const ListPageContent: FC<Props> = ({ listType }) => {
       </Typography>
       <Demo>
         <List dense={true}>
-          {data?.recipes.map((recipe) => {
+          {data?.map((recipe) => {
             if (iteratedArray && iteratedArray.includes(recipe.id)) {
               return (
                 <React.Fragment key={recipe.id}>

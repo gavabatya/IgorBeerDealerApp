@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setIsAuth } from '../store/authStore/authSlice.ts';
-import { getIsAuth } from '../store/authStore/authSelectors.ts';
 import { useLocalStorage } from './useLocalStorage.ts';
 import { setCartUserEmail } from '../store/cartStore/cartSlice.ts';
 import { setFavoritesUserEmail } from '../store/favoritesStore/favotitesSlice.ts';
 import { setSearchHistoryUserEmail } from '../store/searchHistoryStore/searchHistorySlice.ts';
+import { useAuthContext } from '../context/AuthContext.tsx';
 
 interface UserAuthState {
   email: string;
@@ -19,7 +18,7 @@ export const useAuth = () => {
   const { localStorageSet, localStorageGet } = useLocalStorage();
 
   const [isAuthError, setIsAuthError] = useState(false);
-  const isAuth = useSelector(getIsAuth);
+  const { isAuth } = useAuthContext();
   const dispatch = useDispatch();
 
   const navigate = useNavigate();

@@ -11,8 +11,7 @@ export const MainPageContent = () => {
     <Suspense>
       {data && (
         <div className="cardsContainer">
-          {data.recipes.length > 0 &&
-            data.recipes.map((recipe) => <Recipe key={recipe.id} recipe={recipe} />)}
+          {data.length > 0 && data.map((recipe) => <Recipe key={recipe.id} recipe={recipe} />)}
         </div>
       )}
     </Suspense>
